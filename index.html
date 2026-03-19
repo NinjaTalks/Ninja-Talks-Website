@@ -53,3 +53,33 @@
   <section class="hero">
     <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="hero-logo">
     <h1 class="hero-title">Ninja Talks</h1>
+    <p class="hero-tagline">Awareness • Movement</p>
+  </section>
+
+  <main>
+    <section>
+      <h2>Welcome to Ninja Talks</h2>
+      <p>Your platform for connection, awareness, and community. Explore stories, wellness, neurodiversity, music, and more.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Ninja Talks</p>
+  </footer>
+
+  <!-- JavaScript MUST be at the bottom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const sideMenu = document.querySelector('.side-menu');
+
+      if (menuToggle && sideMenu) {
+        menuToggle.addEventListener('click', () => {
+          sideMenu.classList.toggle('open');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
