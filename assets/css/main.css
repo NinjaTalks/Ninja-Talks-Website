@@ -2,6 +2,19 @@
    NINJA TALKS PURPLE THEME
    =========================== */
 
+/* Logo Styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 :root {
   --purple-dark: #3a0ca3;
   --purple: #7209b7;
