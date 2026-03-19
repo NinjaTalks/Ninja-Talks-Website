@@ -2,108 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AI Music Night – Ninja Talks</title>
+  <title>AI Music – Ninja Talks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
-  <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const sideMenu = document.querySelector('.side-menu');
-
-  menuToggle.addEventListener('click', () => {
-    sideMenu.classList.toggle('open');
-  });
-</script>
-  
 <body>
   <header>
     <nav>
-      <button class="menu-toggle" aria-label="Open Menu">
-  ☰
-</button>
+
+      <!-- Logo -->
+      <div class="logo-container">
+        <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+        <h1>Ninja Talks</h1>
+      </div>
+
+      <!-- Hamburger Button -->
+      <button class="menu-toggle" aria-label="Open Menu">☰</button>
+
+      <!-- Slide-In Mobile Menu -->
       <div class="side-menu">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="neurodiversity.html">Neurodiversity</a></li>
-    <li><a href="wellness.html">Mind & Body</a></li>
-  </ul>
-</div>
-  <div class="logo-container">
-    <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-    <h1>Ninja Talks</h1>
-  </div>
-  <ul>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="neurodiversity.html">Neurodiversity</a></li>
+          <li><a href="wellness.html">Mind & Body</a></li>
+          <li><a href="storytime.html">Story Time</a></li>
+          <li><a href="music.html">AI Music</a></li>
+          <li><a href="fellowship.html">Fellowship</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="desktop-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="neurodiversity.html">Neurodiversity</a></li>
-        <li><a href="wellness.html">Mind &amp; Body</a></li>
+        <li><a href="wellness.html">Mind & Body</a></li>
         <li><a href="storytime.html">Story Time</a></li>
         <li><a href="music.html">AI Music</a></li>
         <li><a href="fellowship.html">Fellowship</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+
     </nav>
   </header>
 
   <main>
     <section>
-      <h2>AI Music Night</h2>
-      <p>AI Music Night is a platform for artists to showcase their music to a live audience. Every Friday, we play the <strong>Top 10 songs</strong> submitted throughout the week, and the community votes for their favourites.</p>
+      <h2>AI Music</h2>
+      <p>Music is a universal language — and with AI, creativity has entered a whole new era. At Ninja Talks, we explore how artificial intelligence can empower artists, inspire new sounds, and open doors for creators everywhere.</p>
 
-      <p>All music is played live on TikTok during the Ninja Talks Friday session.</p>
+      <p>Whether you're experimenting with AI‑generated melodies, remixing vocals, or building full tracks, this space celebrates innovation and artistic expression.</p>
     </section>
 
     <section>
-      <h3>How Submissions Work</h3>
+      <h3>What You’ll Find Here</h3>
       <ul>
-        <li>Artists may submit <strong>one song per week</strong>.</li>
-        <li>Submissions must include a YouTube or Spotify link.</li>
-        <li>All rights remain with the artist.</li>
-        <li>By submitting, artists give permission for their song to be played live and uploaded to Ninja Talks social media and YouTube.</li>
-      </ul>
-
-      <h4>Submit Your Song</h4>
-      <p><em>Embed Google Form here.</em></p>
-    </section>
-
-    <section>
-      <h3>How Voting Works</h3>
-      <ul>
-        <li>Each viewer may cast <strong>one vote per week</strong>.</li>
-        <li>Voting is done through a Google Form.</li>
-        <li>Votes are counted automatically.</li>
-        <li>The leaderboard updates in real time.</li>
-      </ul>
-
-      <h4>Vote Here</h4>
-      <p><em>Embed Google Form here.</em></p>
-    </section>
-
-    <section>
-      <h3>This Week’s Leaderboard</h3>
-      <p><em>Embed Google Sheet here.</em></p>
-    </section>
-
-    <section>
-      <h3>Last Week’s Top 10</h3>
-      <p><em>List or embed last week’s results here.</em></p>
-    </section>
-
-    <section>
-      <h3>Live Session</h3>
-      <p><strong>Every Friday — 8PM to 12AM SAST</strong></p>
-      <p>Live on TikTok @urfavninja</p>
-    </section>
-
-    <section>
-      <h3>Rules &amp; Guidelines</h3>
-      <ul>
-        <li>Be respectful to the host, guests, and other artists.</li>
-        <li>Any disrespectful behaviour may result in being muted or blocked.</li>
-        <li>Artists retain full rights to their music.</li>
-        <li>By submitting, artists grant permission for Ninja Talks to play their music live and upload it to social media and YouTube.</li>
+        <li><strong>AI‑Generated Tracks:</strong> Explore music created with cutting‑edge tools.</li>
+        <li><strong>Artist Spotlights:</strong> Creators using AI in inspiring ways.</li>
+        <li><strong>Behind the Scenes:</strong> How AI tools shape modern music production.</li>
+        <li><strong>Community Projects:</strong> Collaborative tracks and creative challenges.</li>
       </ul>
     </section>
   </main>
@@ -111,5 +71,16 @@
   <footer>
     <p>&copy; Ninja Talks</p>
   </footer>
+
+  <!-- JavaScript MUST be at the bottom -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sideMenu = document.querySelector('.side-menu');
+
+    menuToggle.addEventListener('click', () => {
+      sideMenu.classList.toggle('open');
+    });
+  </script>
+
 </body>
 </html>
