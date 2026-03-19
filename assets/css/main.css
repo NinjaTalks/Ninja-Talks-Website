@@ -232,11 +232,8 @@ button:hover, .btn:hover {
     display: block !important;
   }
 
-  /* FORCE mobile menu items to show */
-  .side-menu ul {
-    display: block !important;
-  }
-
+  /* Ensure mobile menu items always show */
+  .side-menu ul,
   .side-menu li {
     display: block !important;
   }
