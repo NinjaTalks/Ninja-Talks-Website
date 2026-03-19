@@ -1,0 +1,49 @@
+assets/css/main.css
+/* Ninja Talks Purple Theme */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a0f1f;
+  color: #f2e6ff;
+}
+
+header {
+  background-color: #2b0f33;
+  padding: 20px;
+}
+
+nav h1 {
+  margin: 0;
+  color: #d28cff;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  gap: 15px;
+}
+
+nav ul li a {
+  color: #e8c6ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+}
+
+section {
+  padding: 20px;
+}
+
+footer {
+  background-color: #2b0f33;
+  padding: 10px;
+  text-align: center;
+  color: #d28cff;
+  margin-top: 40px;
+}
