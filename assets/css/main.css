@@ -1,49 +1,134 @@
-assets/css/main.css
-/* Ninja Talks Purple Theme */
+/* ===========================
+   NINJA TALKS PURPLE THEME
+   =========================== */
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #1a0f1f;
-  color: #f2e6ff;
+:root {
+  --purple-dark: #3a0ca3;
+  --purple: #7209b7;
+  --purple-light: #b5179e;
+  --pink: #f72585;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --gray: #cccccc;
+  --black: #1a1a1a;
+
+  --font-main: 'Segoe UI', Arial, sans-serif;
 }
 
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--gray-light);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+/* Header */
 header {
-  background-color: #2b0f33;
+  background: linear-gradient(90deg, var(--purple-dark), var(--purple));
   padding: 20px;
+  color: var(--white);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav h1 {
-  margin: 0;
-  color: #d28cff;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 10px 0 0 0;
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
-nav ul li a {
-  color: #e8c6ff;
+nav a {
+  color: var(--white);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-nav ul li a:hover {
-  color: #ffffff;
+nav a:hover {
+  color: var(--pink);
+}
+
+/* Main Content */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+  color: var(--purple-dark);
+  margin-bottom: 10px;
 }
 
 section {
-  padding: 20px;
+  margin-bottom: 30px;
 }
 
+/* Footer */
 footer {
-  background-color: #2b0f33;
-  padding: 10px;
   text-align: center;
-  color: #d28cff;
+  padding: 20px;
   margin-top: 40px;
+  background: var(--purple-dark);
+  color: var(--white);
+}
+
+/* Buttons */
+button, .btn {
+  background: var(--purple);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+  background: var(--pink);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: var(--purple-dark);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  nav.active ul {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  color: var(--white);
 }
