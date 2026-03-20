@@ -2,84 +2,263 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Fellowship Service – Ninja Talks</title>
+  <title>Fellowship – Ninja Talks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
+  <style>
+    :root {
+      --purple-dark: #3a0ca3;
+      --purple: #7209b7;
+      --purple-light: #b5179e;
+      --pink: #f72585;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray: #cccccc;
+      --black: #1a1a1a;
+      --font-main: 'Segoe UI', Arial, sans-serif;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--gray-light);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* HEADER + HAMBURGER (Step 1) */
+    header {
+      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+      padding: 20px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: block;
+      font-size: 32px;
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--purple-dark);
+      padding-top: 80px;
+      transform: translateX(-260px);
+      transition: transform 0.3s ease;
+      z-index: 999;
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+
+    .side-menu.open {
+      transform: translateX(0);
+    }
+
+    .side-menu ul { list-style:none; padding:0; }
+    .side-menu li { margin:20px 0; text-align:center; }
+    .side-menu a {
+      color:var(--white);
+      font-size:20px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* HERO */
+    .hero {
+      text-align:center;
+      padding:60px 20px;
+      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
+      color: var(--white);
+      border-bottom-left-radius:20px;
+      border-bottom-right-radius:20px;
+      margin-bottom:40px;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    .hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero-tagline {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width:900px;
+      margin:40px auto;
+      padding:20px;
+      background:var(--white);
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
+    section { margin-bottom:30px; }
+
+    .content-block {
+      background:#fafafa;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .event-card {
+      background:#ffffff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom:20px;
+    }
+
+    .event-card h4 {
+      margin-bottom:10px;
+      color:var(--purple);
+    }
+
+    .countdown {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--purple-dark);
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      background:var(--purple-dark);
+      color:var(--white);
+    }
+  </style>
 </head>
 
 <body>
 
-  <header>
-    <nav>
+<!-- HEADER (Step 1) -->
+<header>
+  <div class="logo-container">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <h1>Ninja Talks</h1>
+  </div>
 
-      <div class="logo-container">
-        <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-        <h1>Ninja Talks</h1>
-      </div>
+  <nav>
+    <div></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </nav>
+</header>
 
-      <button class="menu-toggle" aria-label="Open Menu">☰</button>
+<!-- SLIDE-IN MENU (Step 2) -->
+<div class="side-menu" id="sideMenu">
+  <ul>
+    <li><a href="/NinjaTalks/index.html">Home</a></li>
+    <li><a href="/NinjaTalks/neurodiversity.html">Neurodiversity</a></li>
+    <li><a href="/NinjaTalks/wellness.html">Mind & Body</a></li>
+    <li><a href="/NinjaTalks/storytime.html">Story Time</a></li>
+    <li><a href="/NinjaTalks/fellowship.html">Fellowship</a></li>
+    <li><a href="/NinjaTalks/music.html">AI Music</a></li>
+    <li><a href="/NinjaTalks/contact.html">Contact</a></li>
+  </ul>
+</div>
 
-      <div class="side-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="neurodiversity.html">Neurodiversity</a></li>
-          <li><a href="wellness.html">Mind & Body</a></li>
-          <li><a href="storytime.html">Story Time</a></li>
-          <li><a href="fellowship.html">Fellowship</a></li>
-          <li><a href="music.html">AI Music</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <h2 class="hero-title">Fellowship</h2>
+  <p class="hero-tagline">Community, connection, and shared experiences.</p>
+</section>
 
-      <ul class="desktop-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="neurodiversity.html">Neurodiversity</a></li>
-        <li><a href="wellness.html">Mind & Body</a></li>
-        <li><a href="storytime.html">Story Time</a></li>
-        <li><a href="fellowship.html">Fellowship</a></li>
-        <li><a href="music.html">AI Music</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+<main>
 
-    </nav>
-  </header>
+  <!-- MAIN CONTENT (cleaned + modernized) -->
+  <section class="content-block">
+    <h3>What Is Fellowship?</h3>
+    <p>
+      Fellowship is about bringing people together — sharing stories, supporting one another, and building a community where everyone feels welcome.
+    </p>
+    <p>
+      Whether online or in person, our gatherings are a chance to connect, reflect, and grow.
+    </p>
+  </section>
 
-  <main>
+  <!-- EVENT CARD -->
+  <section class="event-card">
+    <h4>🌟 Next Fellowship Event</h4>
+    <p>
+      Join us for our next community meetup. Expect meaningful conversations, shared experiences, and a welcoming space for all.
+    </p>
 
-    <section>
-      <h2>Fellowship Service</h2>
-      <p>Welcome to our Christian Fellowship Service — a space for worship, teaching, prayer, and encouragement. We gather to grow in faith, support one another, and honour God together.</p>
-      <p><strong>Time:</strong> Sundays from 8PM to 10PM SAST</p>
-      <p><strong>Platform:</strong> TikTok Live on the Ninja Talks account</p>
-    </section>
+    <div class="countdown" id="countdown">Loading countdown...</div>
+  </section>
 
-    <section>
-      <h3>What Happens in Fellowship?</h3>
-      <ul>
-        <li><strong>Praise & Worship:</strong> Songs that uplift and honour God.</li>
-        <li><strong>Weekly Topics:</strong> Faith, healing, forgiveness, identity, purpose, relationships, and more.</li>
-        <li><strong>Guests:</strong> Different guests join to share testimonies and teachings.</li>
-        <li><strong>Prayer:</strong> We pray for viewers, families, and needs shared during the live.</li>
-      </ul>
-    </section>
+</main>
 
-    <section>
-      <h3>Weekly Themes</h3>
+<footer>
+  <p>&copy; Ninja Talks</p>
+</footer>
 
-      <h4>Last Week’s Theme</h4>
-      <p><em>Update weekly with last week’s message or scripture.</em></p>
+<!-- SCRIPT (Step 3 + Countdown Example) -->
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+}
 
-      <h4>This Week’s Theme</h4>
-      <p><em>Update weekly with this week’s message or scripture.</em></p>
-    </section>
+/* Optional Countdown Example */
+const eventDate = new Date("2025-12-01T18:00:00").getTime();
 
-  </main>
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = eventDate - now;
 
-  <footer>
-    <p>&copy; Ninja Talks</p>
-  </footer>
+  if (distance < 0) {
+    document.getElementById("countdown").innerText = "Event is live!";
+    return;
+  }
 
-  <script src="assets/js/main.js"></script>
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  document.getElementById("countdown").innerText =
+    `${days}d ${hours}h ${minutes}m`;
+}, 1000);
+</script>
 
 </body>
 </html>
