@@ -6,24 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
+
+  <style>
+    /* FIXED MENU */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: #3a0ca3;
+      padding-top: 80px;
+      transform: translateX(-260px);
+      transition: transform 0.3s ease;
+      z-index: 9999;
+    }
+    .side-menu.open {
+      transform: translateX(0);
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-container">
     <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
-
   <nav>
-    <div></div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </nav>
 </header>
 
-<!-- MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -38,14 +53,12 @@
 
 <main>
 
-<!-- HERO -->
 <section class="hero">
   <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
   <h2 class="hero-title">Fellowship</h2>
   <p class="hero-tagline">Faith. Healing. Worship. Community.</p>
 </section>
 
-<!-- ABOUT -->
 <section>
   <h3>What Fellowship Is</h3>
   <div class="info-box">
@@ -63,10 +76,8 @@
   </div>
 </section>
 
-<!-- THIS WEEK -->
 <section>
   <h3>📅 This Week’s Fellowship Topic</h3>
-
   <div class="info-box">
     <p><strong>Topic:</strong> <span id="thisWeekTopic">To Be Announced</span></p>
     <p><strong>Scripture:</strong> <span id="thisWeekScripture">Revealed during the live session</span></p>
@@ -74,10 +85,8 @@
   </div>
 </section>
 
-<!-- LAST WEEK -->
 <section>
   <h3>🎥 Last Week’s Fellowship</h3>
-
   <div class="info-box">
     <p><strong>Topic:</strong> <span id="lastWeekTopic">Last Week’s Theme</span></p>
     <p><strong>Scripture:</strong> <span id="lastWeekScripture">Shared during the session</span></p>
