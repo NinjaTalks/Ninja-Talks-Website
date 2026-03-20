@@ -1,0 +1,38 @@
+name: Toggle Live Status
+
+on:
+  workflow_dispatch:
+    inputs:
+      live:
+        description: "Set live status"
+        required: true
+        type: choice
+        options:
+          - true
+          - false
+      url:
+        description: "TikTok live URL (only needed if live = true)"
+        required: false
+        default: ""
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Update live.json
+        run: |
+          echo "{
+            \"live\": ${{ github.event.inputs.live }},
+            \"url\": \"${{ github.event.inputs.url }}\"
+          }" > live.json
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add live.json
+          git commit -m \"Update live.json via workflow\" || echo \"No changes to commit\"
+          git push
