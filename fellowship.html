@@ -2,180 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Fellowship – Ninja Talks</title>
+  <title>Ninja Talks – Fellowship</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
-  <style>
-    :root {
-      --purple-dark: #3a0ca3;
-      --purple: #7209b7;
-      --purple-light: #b5179e;
-      --pink: #f72585;
-      --white: #ffffff;
-      --gray-light: #f5f5f5;
-      --gray: #cccccc;
-      --black: #1a1a1a;
-      --font-main: 'Segoe UI', Arial, sans-serif;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      font-family: var(--font-main);
-      background: var(--gray-light);
-      color: var(--black);
-      line-height: 1.6;
-    }
-
-    /* HEADER + HAMBURGER (Step 1) */
-    header {
-      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-      padding: 20px;
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .menu-toggle {
-      display: block;
-      font-size: 32px;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-    }
-
-    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      width: 260px;
-      height: 100%;
-      background: var(--purple-dark);
-      padding-top: 80px;
-      transform: translateX(-260px);
-      transition: transform 0.3s ease;
-      z-index: 999;
-      backface-visibility: hidden;
-      will-change: transform;
-    }
-
-    .side-menu.open {
-      transform: translateX(0);
-    }
-
-    .side-menu ul { list-style:none; padding:0; }
-    .side-menu li { margin:20px 0; text-align:center; }
-    .side-menu a {
-      color:var(--white);
-      font-size:20px;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    /* HERO */
-    .hero {
-      text-align:center;
-      padding:60px 20px;
-      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
-      color: var(--white);
-      border-bottom-left-radius:20px;
-      border-bottom-right-radius:20px;
-      margin-bottom:40px;
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    .hero-title {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero-tagline {
-      font-size: 20px;
-      opacity: 0.9;
-    }
-
-    /* MAIN CONTENT */
-    main {
-      max-width:900px;
-      margin:40px auto;
-      padding:20px;
-      background:var(--white);
-      border-radius:10px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
-    section { margin-bottom:30px; }
-
-    .content-block {
-      background:#fafafa;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    .event-card {
-      background:#ffffff;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-      margin-bottom:20px;
-    }
-
-    .event-card h4 {
-      margin-bottom:10px;
-      color:var(--purple);
-    }
-
-    .countdown {
-      font-size: 24px;
-      font-weight: bold;
-      color: var(--purple-dark);
-      margin-top: 10px;
-    }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-      background:var(--purple-dark);
-      color:var(--white);
-    }
-  </style>
+  <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
 </head>
 
 <body>
 
-<!-- HEADER (Step 1) -->
+<!-- HEADER -->
 <header>
   <div class="logo-container">
-    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
 
@@ -185,7 +23,7 @@
   </nav>
 </header>
 
-<!-- SLIDE-IN MENU (Step 2) -->
+<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -198,34 +36,60 @@
   </ul>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <h2 class="hero-title">Fellowship</h2>
-  <p class="hero-tagline">Community, connection, and shared experiences.</p>
-</section>
-
 <main>
 
-  <!-- MAIN CONTENT (cleaned + modernized) -->
-  <section class="content-block">
-    <h3>What Is Fellowship?</h3>
-    <p>
-      Fellowship is about bringing people together — sharing stories, supporting one another, and building a community where everyone feels welcome.
-    </p>
-    <p>
-      Whether online or in person, our gatherings are a chance to connect, reflect, and grow.
-    </p>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
+  <h2 class="hero-title">Fellowship</h2>
+  <p class="hero-tagline">Faith. Healing. Worship. Community.</p>
+</section>
 
-  <!-- EVENT CARD -->
-  <section class="event-card">
-    <h4>🌟 Next Fellowship Event</h4>
+<!-- ABOUT FELLOWSHIP -->
+<section>
+  <h3>What Fellowship Is</h3>
+  <div class="info-box">
     <p>
-      Join us for our next community meetup. Expect meaningful conversations, shared experiences, and a welcoming space for all.
+      Fellowship is our weekly live gathering on TikTok — a space where we come together
+      in faith, honesty, and unity. Every Sunday from <strong>8 PM to 10 PM SAST</strong>, we read scripture,
+      share testimonies, worship together, and talk openly about life, struggles, healing,
+      and God’s presence in our journeys.
     </p>
 
-    <div class="countdown" id="countdown">Loading countdown...</div>
-  </section>
+    <p>
+      This is not a performance. It’s not a show. It’s a moment of connection — real people,
+      real faith, real conversations. You are welcome exactly as you are.
+    </p>
+
+    <p>
+      Fellowship does not include meetups or events outside TikTok Live. Everything happens
+      during the Sunday session.
+    </p>
+  </div>
+</section>
+
+<!-- THIS WEEK'S TOPIC -->
+<section>
+  <h3>📅 This Week’s Fellowship Topic</h3>
+
+  <div class="info-box">
+    <p><strong>Topic:</strong> <span id="thisWeekTopic">To Be Announced</span></p>
+    <p><strong>Scripture:</strong> <span id="thisWeekScripture">Revealed during the live session</span></p>
+    <p>Join us this Sunday at 8 PM SAST on TikTok Live.</p>
+  </div>
+</section>
+
+<!-- LAST WEEK'S FELLOWSHIP -->
+<section>
+  <h3>🎥 Last Week’s Fellowship</h3>
+
+  <div class="info-box">
+    <p><strong>Topic:</strong> <span id="lastWeekTopic">Last Week’s Theme</span></p>
+    <p><strong>Scripture:</strong> <span id="lastWeekScripture">Shared during the session</span></p>
+    <p><strong>Watch the replay:</strong></p>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
 
 </main>
 
@@ -233,31 +97,10 @@
   <p>&copy; Ninja Talks</p>
 </footer>
 
-<!-- SCRIPT (Step 3 + Countdown Example) -->
 <script>
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
 }
-
-/* Optional Countdown Example */
-const eventDate = new Date("2025-12-01T18:00:00").getTime();
-
-setInterval(() => {
-  const now = new Date().getTime();
-  const distance = eventDate - now;
-
-  if (distance < 0) {
-    document.getElementById("countdown").innerText = "Event is live!";
-    return;
-  }
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-  document.getElementById("countdown").innerText =
-    `${days}d ${hours}h ${minutes}m`;
-}, 1000);
 </script>
 
 </body>
