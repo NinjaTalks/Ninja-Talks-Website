@@ -58,7 +58,7 @@
 
 <main>
 
-  <!-- LIVE STATUS BANNER -->
+  <!-- LIVE STATUS BANNER (now visible) -->
   <div id="live-status"></div>
 
   <!-- HERO -->
@@ -107,9 +107,9 @@
   <p>&copy; Ninja Talks</p>
 </footer>
 
-<!-- LIVE JSON LOADER -->
+<!-- LIVE JSON LOADER (with cache-buster) -->
 <script>
-fetch("/live.json")
+fetch("/live.json?cache=" + Date.now())
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("live-status");
