@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Ninja Talks – AI Music</title>
-    <link rel="stylesheet" href="/css/music.css">
+    <link rel="stylesheet" href="/assets/css/music.css">
 </head>
 
 <body>
 
 <header class="hero">
+    <img src="/assets/images/logo other.png" alt="Ninja Talks Logo" class="logo">
     <h1>AI Music Charts</h1>
     <p>Submit your track. Vote for your favourites. Rise to the Top 10.</p>
 </header>
@@ -25,8 +26,37 @@
 <!-- VOTING INSTRUCTIONS -->
 <section class="voting-instructions">
     <h2>How Voting Works</h2>
-    <p>Vote for your favourite tracks once per week. The Top 10 resets every Monday.</p>
+    <p>Vote for your favourite tracks once per week. The Top 10 resets every Saturday at 12:00 AM.</p>
     <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSd0_P1_E80ulZzOlA8IF06-bEjB9mz3Ukp0LLoW3UE_UDxCJQ/viewform?usp=header" target="_blank">Vote Now</a>
+</section>
+
+<!-- WEEKLY SCHEDULE + COUNTDOWNS -->
+<section class="schedule">
+    <h2>Weekly Schedule</h2>
+
+    <div class="schedule-box">
+        <h3>📥 Submissions</h3>
+        <p><strong>Open:</strong> Saturday 12:00 AM</p>
+        <p><strong>Close:</strong> Thursday 12:00 AM</p>
+        <p class="countdown-label">Time until submissions close:</p>
+        <p id="submissionCountdown" class="countdown"></p>
+    </div>
+
+    <div class="schedule-box">
+        <h3>🗳 Voting</h3>
+        <p><strong>Open:</strong> Saturday 12:00 AM</p>
+        <p><strong>Close:</strong> Thursday 12:00 PM</p>
+        <p class="countdown-label">Time until voting closes:</p>
+        <p id="votingCountdown" class="countdown"></p>
+    </div>
+
+    <div class="schedule-box">
+        <h3>🎤 TikTok Live</h3>
+        <p><strong>Starts:</strong> Friday 8:00 PM SAST</p>
+        <p class="countdown-label">Time until live show:</p>
+        <p id="liveCountdown" class="countdown"></p>
+        <p class="note">The Top 10 tracks will be played live on TikTok every Friday.</p>
+    </div>
 </section>
 
 <!-- TOP SONG OF THE WEEK -->
@@ -316,12 +346,61 @@
             <p class="votes">38 votes</p>
         </div>
 
-        <!-- Add unlimited more submissions here -->
-
     </div>
 </section>
 
 </main>
+
+<!-- COUNTDOWN SCRIPT -->
+<script>
+// Utility: get next occurrence of a weekly time
+function nextWeeklyTime(day, hour, minute, second, offsetHours = 0) {
+    const now = new Date();
+    const target = new Date();
+
+    const days = ["sun","mon","tue","wed","thu","fri","sat"];
+    const targetDay = days.indexOf(day.toLowerCase());
+
+    target.setUTCHours(hour - offsetHours, minute, second, 0);
+    target.setUTCDate(now.getUTCDate() + ((targetDay - now.getUTCDay() + 7) % 7));
+
+    if (target < now) {
+        target.setUTCDate(target.getUTCDate() + 7);
+    }
+
+    return target;
+}
+
+function updateCountdown(elementId, targetTime) {
+    const now = new Date();
+    const diff = targetTime - now;
+
+    if (diff <= 0) {
+        document.getElementById(elementId).innerText = "Closed";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById(elementId).innerText =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+const SAST_OFFSET = 2;
+
+const submissionClose = nextWeeklyTime("thu", 0, 0, 0, SAST_OFFSET);
+const votingClose = nextWeeklyTime("thu", 12, 0, 0, SAST_OFFSET);
+const liveStart = nextWeeklyTime("fri", 20, 0, 0, SAST_OFFSET);
+
+setInterval(() => {
+    updateCountdown("submissionCountdown", submissionClose);
+    updateCountdown("votingCountdown", votingClose);
+    updateCountdown("liveCountdown", liveStart);
+}, 1000);
+</script>
 
 </body>
 </html>
