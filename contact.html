@@ -6,24 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
+
+  <style>
+    /* FIXED MENU */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: #3a0ca3;
+      padding-top: 80px;
+      transform: translateX(-260px);
+      transition: transform 0.3s ease;
+      z-index: 9999;
+    }
+    .side-menu.open {
+      transform: translateX(0);
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-container">
     <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
-
   <nav>
-    <div></div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </nav>
 </header>
 
-<!-- MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -38,14 +53,12 @@
 
 <main>
 
-<!-- HERO -->
 <section class="hero">
   <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
   <h2 class="hero-title">Contact Us</h2>
   <p class="hero-tagline">Reach out. Connect. Share your voice.</p>
 </section>
 
-<!-- INTRO -->
 <section>
   <h3>Get in Touch</h3>
   <div class="info-box">
@@ -57,7 +70,6 @@
   </div>
 </section>
 
-<!-- CONTACT DETAILS -->
 <section>
   <h3>Where You Can Reach Us</h3>
 
@@ -70,7 +82,6 @@
   </div>
 </section>
 
-<!-- WEEKLY SCHEDULE -->
 <section>
   <h3>Ninja Talks Weekly Live Schedule</h3>
 
@@ -83,7 +94,6 @@
   </div>
 </section>
 
-<!-- SAFETY NOTE -->
 <section>
   <h3>Before You Reach Out</h3>
 
