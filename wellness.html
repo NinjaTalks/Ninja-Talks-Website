@@ -2,160 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mind & Body Wellness – Ninja Talks</title>
+  <title>Ninja Talks – Wellness</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
-  <style>
-    :root {
-      --purple-dark: #3a0ca3;
-      --purple: #7209b7;
-      --purple-light: #b5179e;
-      --pink: #f72585;
-      --white: #ffffff;
-      --gray-light: #f5f5f5;
-      --gray: #cccccc;
-      --black: #1a1a1a;
-      --font-main: 'Segoe UI', Arial, sans-serif;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      font-family: var(--font-main);
-      background: var(--gray-light);
-      color: var(--black);
-      line-height: 1.6;
-    }
-
-    /* HEADER + HAMBURGER (Step 1) */
-    header {
-      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-      padding: 20px;
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .menu-toggle {
-      display: block;
-      font-size: 32px;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-    }
-
-    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      width: 260px;
-      height: 100%;
-      background: var(--purple-dark);
-      padding-top: 80px;
-      transform: translateX(-260px);
-      transition: transform 0.3s ease;
-      z-index: 999;
-      backface-visibility: hidden;
-      will-change: transform;
-    }
-
-    .side-menu.open {
-      transform: translateX(0);
-    }
-
-    .side-menu ul { list-style:none; padding:0; }
-    .side-menu li { margin:20px 0; text-align:center; }
-    .side-menu a {
-      color:var(--white);
-      font-size:20px;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    /* HERO */
-    .hero {
-      text-align:center;
-      padding:60px 20px;
-      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
-      color: var(--white);
-      border-bottom-left-radius:20px;
-      border-bottom-right-radius:20px;
-      margin-bottom:40px;
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    .hero-title {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero-tagline {
-      font-size: 20px;
-      opacity: 0.9;
-    }
-
-    /* MAIN CONTENT */
-    main {
-      max-width:900px;
-      margin:40px auto;
-      padding:20px;
-      background:var(--white);
-      border-radius:10px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
-    section { margin-bottom:30px; }
-
-    .content-block {
-      background:#fafafa;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-      background:var(--purple-dark);
-      color:var(--white);
-    }
-  </style>
+  <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
 </head>
 
 <body>
 
-<!-- HEADER (Step 1) -->
+<!-- HEADER -->
 <header>
   <div class="logo-container">
-    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
 
@@ -165,7 +23,7 @@
   </nav>
 </header>
 
-<!-- SLIDE-IN MENU (Step 2) -->
+<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -178,42 +36,144 @@
   </ul>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <h2 class="hero-title">Mind & Body Wellness</h2>
-  <p class="hero-tagline">Balance, healing, and growth — one step at a time.</p>
-</section>
-
 <main>
 
-  <!-- MAIN CONTENT (cleaned + modernized) -->
-  <section class="content-block">
-    <h3>Wellness at Ninja Talks</h3>
-    <p>
-      Wellness is more than physical health — it’s emotional balance, mental clarity, and the ability to feel grounded in your daily life.  
-    </p>
-    <p>
-      This space is dedicated to helping you explore practices, tools, and insights that support your overall well‑being.
-    </p>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
+  <h2 class="hero-title">Mind & Body Wellness</h2>
+  <p class="hero-tagline">Healing is not linear. Growth is not perfect.</p>
+</section>
 
-  <section class="content-block">
-    <h3>Mindfulness & Mental Health</h3>
-    <p>
-      From breathing exercises to grounding techniques, mindfulness helps you reconnect with yourself and reduce stress.  
-    </p>
-    <p>
-      Whether you're navigating anxiety, burnout, or simply seeking calm, you’re not alone — and you’re welcome here.
-    </p>
-  </section>
+<!-- WHAT WELLNESS REALLY IS -->
+<section>
+  <h3>What Wellness Really Means</h3>
 
-  <section class="content-block">
-    <h3>Physical Wellness</h3>
+  <div class="info-box">
     <p>
-      Movement, rest, and nutrition all play a role in how we feel.  
-      Wellness isn’t about perfection — it’s about listening to your body and giving it what it needs.
+      Wellness is not about pretending everything is fine. It’s not about forcing positivity,
+      ignoring your pain, or acting strong when you’re falling apart inside. Real wellness is
+      messy, honest, and deeply personal. It’s about learning yourself, understanding your limits,
+      and finding ways to cope, heal, and grow at your own pace.
     </p>
-  </section>
+
+    <p>
+      At Ninja Talks, we don’t believe in “just get over it” or “stay positive.” We believe in
+      real conversations, real struggles, and real healing — the kind that takes time, patience,
+      and compassion.
+    </p>
+  </div>
+</section>
+
+<!-- TRIGGER WARNINGS -->
+<section>
+  <h3>Trigger Warnings</h3>
+
+  <div class="info-box">
+    <p>
+      ⚠️ Wellness discussions may include topics such as anxiety, depression, burnout, trauma,
+      emotional overwhelm, self‑esteem struggles, and life challenges. These topics can be heavy.
+      Please take care of yourself while reading or participating.
+    </p>
+  </div>
+</section>
+
+<!-- MENTAL + EMOTIONAL WELLNESS -->
+<section>
+  <h3>Mental & Emotional Wellness</h3>
+
+  <div class="info-box">
+    <p>
+      Mental wellness is not about being happy all the time. It’s about understanding your mind,
+      recognising your emotions, and learning how to navigate them without shame. Some days you
+      cope well. Some days you don’t. Both are valid.
+    </p>
+
+    <p>
+      Emotional wellness means allowing yourself to feel — without guilt, without fear, without
+      apologising for being human. You don’t have to be strong every day. You don’t have to hold
+      everything together alone.
+    </p>
+  </div>
+</section>
+
+<!-- PHYSICAL WELLNESS -->
+<section>
+  <h3>Physical Wellness</h3>
+
+  <div class="info-box">
+    <p>
+      Physical wellness is more than exercise or diet. It’s about rest, boundaries, recovery,
+      and listening to your body. Many people push themselves past exhaustion because they feel
+      they “should” be doing more. But your body deserves care, not punishment.
+    </p>
+
+    <p>
+      Wellness looks different for everyone. For some, it’s movement. For others, it’s stillness.
+      For many, it’s simply surviving the day — and that counts too.
+    </p>
+  </div>
+</section>
+
+<!-- SPIRITUAL WELLNESS -->
+<section>
+  <h3>Spiritual Wellness</h3>
+
+  <div class="info-box">
+    <p>
+      Spiritual wellness is about connection — to faith, to purpose, to meaning, or to something
+      greater than yourself. It doesn’t have to look a certain way. It doesn’t have to follow
+      rules or rituals. It’s about grounding yourself in what brings you peace, strength, and
+      clarity.
+    </p>
+
+    <p>
+      For some, that’s prayer. For others, meditation. For others, reflection or gratitude.
+      Whatever your path looks like, it’s valid.
+    </p>
+  </div>
+</section>
+
+<!-- NINJA TALKS APPROACH -->
+<section>
+  <h3>Ninja Talks & Wellness</h3>
+
+  <div class="info-box">
+    <p>
+      Ninja Talks is a space where people can talk openly about their struggles without being
+      judged or dismissed. We don’t offer medical advice or diagnoses. What we offer is
+      conversation, community, and a place where you don’t have to pretend.
+    </p>
+
+    <p>
+      Through TikTok Lives, discussions, testimonies, and shared experiences, we aim to create
+      a space where healing feels possible — even on the days it feels far away.
+    </p>
+  </div>
+</section>
+
+<!-- THIS WEEK'S TOPIC -->
+<section>
+  <h3>📅 This Week’s Wellness Topic</h3>
+
+  <div class="info-box">
+    <p><strong>Topic:</strong> <span id="thisWeekTopic">To Be Announced</span></p>
+    <p><strong>Focus:</strong> <span id="thisWeekFocus">Revealed during the live session</span></p>
+    <p>Join us this week on TikTok Live.</p>
+  </div>
+</section>
+
+<!-- LAST WEEK'S TOPIC -->
+<section>
+  <h3>🎥 Last Week’s Topic</h3>
+
+  <div class="info-box">
+    <p><strong>Topic:</strong> <span id="lastWeekTopic">Last Week’s Discussion</span></p>
+    <p><strong>Focus:</strong> <span id="lastWeekFocus">Shared during the session</span></p>
+    <p><strong>Watch the replay:</strong></p>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
 
 </main>
 
@@ -221,7 +181,6 @@
   <p>&copy; Ninja Talks</p>
 </footer>
 
-<!-- SCRIPT (Step 3) -->
 <script>
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
