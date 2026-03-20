@@ -92,6 +92,12 @@ nav a:hover {
   transform: translateZ(0);
 }
 
+header, .hero {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
 /* ===========================
    HERO SECTION
    =========================== */
@@ -249,13 +255,13 @@ button:hover, .btn:hover {
   z-index: 999;
 }
    .side-menu {
-  will-change: transform;
   backface-visibility: hidden;
-  transform: translateZ(0);
+  transform: translateZ(0) translateX(-260px);
+  will-change: transform;
 }
 
 .side-menu.open {
-  transform: translateX(0);
+  transform: translateZ(0) translateX(0);
 }
 
 /* ===========================
