@@ -112,9 +112,17 @@
 async function loadLiveStatus() {
   try {
     const response = await fetch("https://ninjatalks.github.io/NinjaTalks/live.json?cache=" + Date.now());
-    if (!response.ok) return; // silently fail if missing
 
-    const data = await response.json();
+    // Read as text first to avoid JSON parse errors
+    const text = await response.text();
+
+    // If GitHub returns HTML (404 page, cached page, etc.), stop here
+    if (!text.trim().startsWith("{")) {
+      return;
+    }
+
+    // Safe to parse JSON now
+    const data = JSON.parse(text);
     const container = document.getElementById("live-status");
 
     if (data.live) {
@@ -140,7 +148,7 @@ async function loadLiveStatus() {
       container.innerHTML = "";
     }
   } catch (e) {
-    // fail silently to prevent flashing
+    // fail silently — prevents flashing
   }
 }
 
