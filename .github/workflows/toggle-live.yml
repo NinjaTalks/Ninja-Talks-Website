@@ -18,9 +18,12 @@ on:
 jobs:
   update-json:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Update live.json
         run: |
@@ -34,5 +37,8 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add live.json
-          git commit -m \"Update live.json via workflow\" || echo \"No changes to commit\"
-          git push
+          git commit -m "Update live.json via workflow" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
+          git push origin main
