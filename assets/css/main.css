@@ -218,35 +218,20 @@ button:hover, .btn:hover {
 }
 
 .side-menu {
+  .side-menu {
   position: fixed;
   top: 0;
-  left: -260px;
   width: 260px;
   height: 100%;
   background: var(--purple-dark);
   padding-top: 80px;
-  transition: right 0.3s ease;
+  transform: translateX(-260px);
+  transition: transform 0.3s ease;
   z-index: 999;
 }
 
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.side-menu li {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.side-menu a {
-  color: var(--white);
-  font-size: 20px;
-  text-decoration: none;
-}
-
 .side-menu.open {
-  left: 0;
+  transform: translateX(0);
 }
 
 /* ===========================
