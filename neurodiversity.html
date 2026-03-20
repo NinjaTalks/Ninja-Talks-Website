@@ -6,24 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
+
+  <style>
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: #3a0ca3;
+      padding-top: 80px;
+      transform: translateX(-260px);
+      transition: transform 0.3s ease;
+      z-index: 9999;
+    }
+    .side-menu.open { transform: translateX(0); }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-container">
     <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
-
-  <nav>
-    <div></div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  </nav>
+  <nav><button class="menu-toggle" onclick="toggleMenu()">☰</button></nav>
 </header>
 
-<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -38,154 +48,98 @@
 
 <main>
 
-<!-- HERO -->
 <section class="hero">
   <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
   <h2 class="hero-title">Neurodiversity</h2>
   <p class="hero-tagline">Different minds. Different strengths. One community.</p>
 </section>
 
-<!-- WHAT NEURODIVERSITY IS -->
 <section>
   <h3>Understanding Neurodiversity</h3>
-
   <div class="info-box">
     <p>
-      Neurodiversity means that the human brain is naturally varied. People think, feel, learn,
-      process, and experience the world in different ways — and those differences are real,
-      valid, and meaningful. Neurodiversity includes autism, ADHD, dyslexia, dyspraxia,
-      Tourette’s, OCD, and many other neurological differences.
+      Neurodiversity means that people experience and interact with the world in different ways.
+      These differences are natural, valid, and meaningful. It includes autism, ADHD, dyslexia,
+      dyspraxia, Tourette’s, OCD, and more.
     </p>
-
     <p>
-      It’s not about “fixing” people. It’s about understanding them. It’s about recognising
-      that the world is not built for every brain — and that doesn’t make those brains wrong.
+      It’s not about “fixing” people — it’s about understanding them.
     </p>
   </div>
 </section>
 
-<!-- TRIGGER WARNINGS -->
 <section>
   <h3>Trigger Warnings</h3>
-
   <div class="info-box">
     <p>
-      ⚠️ Discussions around neurodiversity may include topics such as burnout, masking,
-      trauma, bullying, emotional overwhelm, sensory overload, and mental health struggles.
-      These experiences are real and often heavy. Please take care of yourself while reading
-      or participating.
+      ⚠️ Discussions may include burnout, masking, trauma, bullying, emotional overwhelm,
+      sensory overload, and mental health struggles. Please take care of yourself.
     </p>
   </div>
 </section>
 
-<!-- LIVED EXPERIENCE -->
 <section>
   <h3>The Lived Experience</h3>
-
   <div class="info-box">
     <p>
-      Being neurodivergent can mean feeling misunderstood, judged, or “too much” for the world.
-      It can mean working twice as hard to do things others find simple, or excelling in areas
-      others struggle with. It can mean sensory overload, emotional intensity, hyperfocus,
-      creativity, deep empathy, or constant exhaustion from trying to “fit in.”
-    </p>
-
-    <p>
-      Many neurodivergent people mask — hiding their true selves to avoid criticism or conflict.
-      Masking is exhausting. Here, you don’t have to mask. You don’t have to shrink yourself.
-      You are seen as you are.
+      Being neurodivergent can mean feeling misunderstood or judged for things that come naturally
+      to you. It can mean sensory overload, emotional intensity, hyperfocus, creativity, or
+      exhaustion from masking.
     </p>
   </div>
 </section>
 
-<!-- CHILDREN'S EXPERIENCE -->
 <section>
   <h3>How Children Experience Neurodiversity</h3>
-
   <div class="info-box">
     <p>
-      Neurodivergent children often feel the world more intensely. They may struggle with
-      loud noises, bright lights, unexpected changes, or social rules that don’t make sense
-      to them. They may be labelled “difficult,” “naughty,” “lazy,” or “too sensitive” when
-      in reality they are overwhelmed, misunderstood, or trying their best in a world that
-      doesn’t match how their brain works.
-    </p>
-
-    <p>
-      Many children grow up believing something is “wrong” with them because adults didn’t
-      understand their needs. At Ninja Talks, we believe children deserve patience, support,
-      and environments that honour their differences — not punish them.
+      Neurodivergent children often feel the world more intensely. They may struggle with noise,
+      bright lights, or social rules that don’t make sense to them. They deserve patience and
+      understanding — not punishment.
     </p>
   </div>
 </section>
 
-<!-- PARENTS' EXPERIENCE -->
 <section>
   <h3>How Parents Experience Neurodiversity</h3>
-
   <div class="info-box">
     <p>
-      Parenting a neurodivergent child can be beautiful, overwhelming, confusing, and isolating.
-      Many parents feel judged by others, blamed for their child’s behaviour, or pressured to
-      “fix” things that aren’t broken. They may struggle to find support, understanding, or
-      resources that actually help.
-    </p>
-
-    <p>
-      Parents often carry the emotional weight of advocating for their child — at school, at
-      home, in public, and sometimes even within their own families. You are not alone. Your
-      experience matters too.
+      Parenting a neurodivergent child can be overwhelming and isolating. Many parents feel judged
+      or blamed. You are not alone — your experience matters too.
     </p>
   </div>
 </section>
 
-<!-- NINJA TALKS APPROACH -->
 <section>
   <h3>Ninja Talks & Neurodiversity</h3>
-
   <div class="info-box">
     <p>
       Ninja Talks is a space where neurodivergent people — and the parents who support them —
-      are heard, respected, and understood. We don’t diagnose. We don’t judge. We don’t pretend
-      to have all the answers. What we offer is community, conversation, and a place where your
-      experiences are valid.
-    </p>
-
-    <p>
-      Through TikTok Lives, discussions, testimonies, and shared stories, we aim to create a
-      space where people can learn from each other, support each other, and feel less alone.
+      are heard, respected, and understood. We don’t diagnose. We don’t judge. We offer community,
+      conversation, and support.
     </p>
   </div>
 </section>
 
-<!-- THIS WEEK'S TOPIC -->
 <section>
-  <h3>📅 This Week’s Neurodiversity Topic</h3>
-
+  <h3>📅 This Week’s Topic</h3>
   <div class="info-box">
     <p><strong>Topic:</strong> <span id="thisWeekTopic">To Be Announced</span></p>
-    <p><strong>Focus:</strong> <span id="thisWeekFocus">Revealed during the live session</span></p>
-    <p>Join us this week on TikTok Live.</p>
+    <p><strong>Focus:</strong> Revealed during the live session</p>
   </div>
 </section>
 
-<!-- LAST WEEK'S TOPIC -->
 <section>
   <h3>🎥 Last Week’s Topic</h3>
-
   <div class="info-box">
     <p><strong>Topic:</strong> <span id="lastWeekTopic">Last Week’s Discussion</span></p>
-    <p><strong>Focus:</strong> <span id="lastWeekFocus">Shared during the session</span></p>
-    <p><strong>Watch the replay:</strong></p>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/" allowfullscreen></iframe>
   </div>
 </section>
 
 </main>
 
-<footer>
-  <p>&copy; Ninja Talks</p>
-</footer>
+<footer><p>&copy; Ninja Talks</p></footer>
 
 <script>
 function toggleMenu() {
