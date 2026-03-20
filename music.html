@@ -1,268 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AI Music – Ninja Talks</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
-  <style>
-    :root {
-      --purple-dark: #3a0ca3;
-      --purple: #7209b7;
-      --purple-light: #b5179e;
-      --pink: #f72585;
-      --white: #ffffff;
-      --gray-light: #f5f5f5;
-      --gray: #cccccc;
-      --black: #1a1a1a;
-      --font-main: 'Segoe UI', Arial, sans-serif;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      font-family: var(--font-main);
-      background: var(--gray-light);
-      color: var(--black);
-      line-height: 1.6;
-    }
-
-    /* HEADER + HAMBURGER (Step 1) */
-    header {
-      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-      padding: 20px;
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .menu-toggle {
-      display: block;
-      font-size: 32px;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-    }
-
-    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      width: 260px;
-      height: 100%;
-      background: var(--purple-dark);
-      padding-top: 80px;
-      transform: translateX(-260px);
-      transition: transform 0.3s ease;
-      z-index: 999;
-      backface-visibility: hidden;
-      will-change: transform;
-    }
-
-    .side-menu.open {
-      transform: translateX(0);
-    }
-
-    .side-menu ul { list-style:none; padding:0; }
-    .side-menu li { margin:20px 0; text-align:center; }
-    .side-menu a {
-      color:var(--white);
-      font-size:20px;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    /* HERO */
-    .hero {
-      text-align:center;
-      padding:60px 20px;
-      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
-      color: var(--white);
-      border-bottom-left-radius:20px;
-      border-bottom-right-radius:20px;
-      margin-bottom:40px;
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    .hero-title {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero-tagline {
-      font-size: 20px;
-      opacity: 0.9;
-    }
-
-    /* MAIN CONTENT */
-    main {
-      max-width:900px;
-      margin:40px auto;
-      padding:20px;
-      background:var(--white);
-      border-radius:10px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
-    section { margin-bottom:30px; }
-
-    .content-block {
-      background:#fafafa;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    .track-card {
-      background:#ffffff;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-      margin-bottom:20px;
-    }
-
-    .track-card h4 {
-      margin-bottom:10px;
-      color:var(--purple);
-    }
-
-    .vote-bar {
-      height: 12px;
-      background: var(--purple-light);
-      border-radius: 6px;
-      margin-top: 8px;
-    }
-
-    .submit-btn {
-      display:inline-block;
-      padding:12px 24px;
-      background:var(--purple);
-      color:#fff;
-      text-decoration:none;
-      border-radius:6px;
-      font-weight:600;
-      margin-top:10px;
-    }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-      background:var(--purple-dark);
-      color:var(--white);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Ninja Talks – AI Music</title>
+    <link rel="stylesheet" href="/global.css">
 </head>
 
 <body>
 
-<!-- HEADER (Step 1) -->
-<header>
-  <div class="logo-container">
-    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-    <h1>Ninja Talks</h1>
-  </div>
-
-  <nav>
-    <div></div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  </nav>
+<header class="hero">
+    <h1>AI Music Charts</h1>
+    <p>Submit your track. Vote for your favourites. Rise to the Top 10.</p>
 </header>
-
-<!-- SLIDE-IN MENU (Step 2) -->
-<div class="side-menu" id="sideMenu">
-  <ul>
-    <li><a href="/NinjaTalks/index.html">Home</a></li>
-    <li><a href="/NinjaTalks/neurodiversity.html">Neurodiversity</a></li>
-    <li><a href="/NinjaTalks/wellness.html">Mind & Body</a></li>
-    <li><a href="/NinjaTalks/storytime.html">Story Time</a></li>
-    <li><a href="/NinjaTalks/fellowship.html">Fellowship</a></li>
-    <li><a href="/NinjaTalks/music.html">AI Music</a></li>
-    <li><a href="/NinjaTalks/contact.html">Contact</a></li>
-  </ul>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <h2 class="hero-title">AI Music</h2>
-  <p class="hero-tagline">Listen. Vote. Create. The sound of the community.</p>
-</section>
 
 <main>
 
-  <!-- INTRO -->
-  <section class="content-block">
-    <h3>Welcome to the AI Music Hub</h3>
-    <p>
-      Submit your tracks, vote for your favorites, and climb the weekly Top 10.  
-      This page will soon update automatically with live rankings, audio players, and vote bars.
-    </p>
-    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="submit-btn">Submit Your Track</a>
-  </section>
+<!-- SUBMIT YOUR TRACK -->
+<section class="submit-section">
+    <h2>Submit Your Track</h2>
+    <p>Think your track deserves a spot on the leaderboard? Submit it below.</p>
+    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSegIIkvLuzKWEcD3OShmVuw3Tlwv5IKu7HvcXtavx50C-lXow/viewform?usp=header" target="_blank">Submit Your Track</a>
+</section>
 
-  <!-- TOP 10 (placeholder for your dynamic system) -->
-  <section class="content-block">
-    <h3>Top 10 Tracks of the Week</h3>
+<!-- VOTING INSTRUCTIONS -->
+<section class="voting-instructions">
+    <h2>How Voting Works</h2>
+    <p>Vote for your favourite tracks once per week. The Top 10 resets every Monday.</p>
+    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSd0_P1_E80ulZzOlA8IF06-bEjB9mz3Ukp0LLoW3UE_UDxCJQ/viewform?usp=header" target="_blank">Vote Now</a>
+</section>
 
-    <!-- Example Track Card -->
-    <div class="track-card">
-      <h4>Track Title – Artist</h4>
-      <audio controls style="width:100%;">
-        <source src="track-placeholder.mp3" type="audio/mpeg">
-      </audio>
-      <div class="vote-bar" style="width: 70%;"></div>
+<!-- TOP SONG OF THE WEEK -->
+<section class="top-song highlight">
+    <h2>🎵 Top Song of the Week</h2>
+
+    <div class="track-card featured">
+        <h3>Midnight Echo – Nova Lane</h3>
+        <audio controls>
+            <source src="" type="audio/mpeg">
+        </audio>
+        <p class="votes">Votes: <strong>312</strong></p>
     </div>
+</section>
 
-    <div class="track-card">
-      <h4>Track Title – Artist</h4>
-      <audio controls style="width:100%;">
-        <source src="track-placeholder.mp3" type="audio/mpeg">
-      </audio>
-      <div class="vote-bar" style="width: 45%;"></div>
+<!-- THIS WEEK'S TOP 10 -->
+<section class="top10">
+    <h2>🔥 This Week’s Top 10</h2>
+
+    <ol class="chart-list">
+
+        <li>
+            <div class="track-card">
+                <span class="rank">1</span>
+                <h3>Midnight Echo – Nova Lane</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 95%;"></div>
+                <p class="votes">312 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">2</span>
+                <h3>Electric Bloom – Jax Orion</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 88%;"></div>
+                <p class="votes">289 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">3</span>
+                <h3>Neon Skies – Lira Voss</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 80%;"></div>
+                <p class="votes">260 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">4</span>
+                <h3>Hollow Pulse – Zane Rydell</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 72%;"></div>
+                <p class="votes">234 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">5</span>
+                <h3>Silver Voltage – Aria Kestrel</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 65%;"></div>
+                <p class="votes">210 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">6</span>
+                <h3>Static Dreams – Milo Riven</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 58%;"></div>
+                <p class="votes">187 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">7</span>
+                <h3>Crimson Circuit – Vexa Hale</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 52%;"></div>
+                <p class="votes">168 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">8</span>
+                <h3>Echo Drift – Solen Kai</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 45%;"></div>
+                <p class="votes">149 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">9</span>
+                <h3>Binary Bloom – Nira Sol</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 40%;"></div>
+                <p class="votes">132 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">10</span>
+                <h3>Velvet Circuit – Arlo Vega</h3>
+                <audio controls><source src=""></audio>
+                <div class="vote-bar" style="width: 36%;"></div>
+                <p class="votes">118 votes</p>
+            </div>
+        </li>
+
+    </ol>
+</section>
+
+<!-- LAST WEEK'S TOP 10 -->
+<section class="top10 last-week">
+    <h2>📻 Last Week’s Top 10</h2>
+
+    <ol class="chart-list">
+
+        <li>
+            <div class="track-card">
+                <span class="rank">1</span>
+                <h3>Crystal Pulse – Ember Rae</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">301 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">2</span>
+                <h3>Digital Mirage – Kade Solis</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">276 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">3</span>
+                <h3>Shadow Frequency – Mira Lux</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">244 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">4</span>
+                <h3>Neon Drift – Aero Vynn</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">221 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">5</span>
+                <h3>Pulse Runner – Juno Vale</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">198 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">6</span>
+                <h3>Static Bloom – Rhea Vox</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">176 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">7</span>
+                <h3>Electric Veil – Orion Kess</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">159 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">8</span>
+                <h3>Holo Bloom – Sera Nox</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">141 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">9</span>
+                <h3>Night Circuit – Vyn Aris</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">128 votes</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="track-card">
+                <span class="rank">10</span>
+                <h3>Echo Bloom – Lira Voss</h3>
+                <audio controls><source src=""></audio>
+                <p class="votes">112 votes</p>
+            </div>
+        </li>
+
+    </ol>
+</section>
+
+<!-- ALL SUBMISSIONS -->
+<section class="all-submissions">
+    <h2>🎧 All Submissions</h2>
+
+    <div class="submission-grid">
+
+        <div class="track-card">
+            <h3>Crystal Pulse – Ember Rae</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">94 votes</p>
+        </div>
+
+        <div class="track-card">
+            <h3>Digital Mirage – Kade Solis</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">87 votes</p>
+        </div>
+
+        <div class="track-card">
+            <h3>Shadow Frequency – Mira Lux</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">76 votes</p>
+        </div>
+
+        <div class="track-card">
+            <h3>Neon Drift – Aero Vynn</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">69 votes</p>
+        </div>
+
+        <div class="track-card">
+            <h3>Pulse Runner – Juno Vale</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">63 votes</p>
+        </div>
+
+        <div class="track-card">
+            <h3>Static Bloom – Rhea Vox</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">58 votes</p>
+        </div>
+
+        <div class="track-card">
+            <h3>Electric Veil – Orion Kess</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">52 votes</p>
+        </div>
+
+        <div class="track-card">
+            <h3>Holo Bloom – Sera Nox</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">47 votes</p>
+        </div>
+
+        <div class="track-card">
+            <h3>Night Circuit – Vyn Aris</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">41 votes</p>
+        </div>
+
+        <div class="track-card">
+            <h3>Echo Bloom – Lira Voss</h3>
+            <audio controls><source src=""></audio>
+            <p class="votes">38 votes</p>
+        </div>
+
+        <!-- Add unlimited more submissions here -->
+
     </div>
-
-    <!-- More tracks will be auto‑generated by your backend -->
-  </section>
+</section>
 
 </main>
-
-<footer>
-  <p>&copy; Ninja Talks</p>
-</footer>
-
-<!-- SCRIPT (Step 3) -->
-<script>
-function toggleMenu() {
-  document.getElementById("sideMenu").classList.toggle("open");
-}
-</script>
 
 </body>
 </html>
