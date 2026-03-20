@@ -1,9 +1,2 @@
-{
-  "live": true,
-  "url": "https://www.tiktok.com/@yourliveurl"
-}
-
-{
-  "live": false,
-  "url": ""
-}
+{ "live": true, "url": "YOUR LIVE LINK" }
+{ "live": false, "url": "" }
