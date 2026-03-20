@@ -4,307 +4,265 @@
   <meta charset="UTF-8">
   <title>AI Music – Ninja Talks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/main.css?v=12">
+
+  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fdfdfd; color: #333; }
-    header { background: #4b0082; color: #fff; padding: 10px 20px; position: relative; }
-    .logo-container { display: flex; align-items: center; gap: 10px; }
-    .logo { height: 50px; width: auto; }
-    nav ul { list-style: none; padding: 0; display: flex; gap: 15px; margin: 0; }
-    nav ul li a { color: #fff; text-decoration: none; }
-    .hamburger {
-      display: none;
-      font-size: 26px;
+    :root {
+      --purple-dark: #3a0ca3;
+      --purple: #7209b7;
+      --purple-light: #b5179e;
+      --pink: #f72585;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray: #cccccc;
+      --black: #1a1a1a;
+      --font-main: 'Segoe UI', Arial, sans-serif;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--gray-light);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* HEADER + HAMBURGER (Step 1) */
+    header {
+      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+      padding: 20px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: block;
+      font-size: 32px;
       background: none;
       border: none;
-      color: #fff;
+      color: var(--white);
       cursor: pointer;
-      margin-left: auto;
-    }
-    main { padding: 20px; }
-    h2, h3 { color: #4b0082; }
-    .requirements-box { background: #eee; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-    .track-card { border: 1px solid #ccc; border-radius: 8px; padding: 12px; background: #fafafa; display: flex; flex-direction: column; justify-content: space-between; }
-    .track-card h4 { margin: 0 0 6px; color: #4b0082; }
-    .track-card p { margin: 0 0 8px; font-weight: bold; }
-    .track-embed { margin-top: 8px; }
-    .countdown { font-weight: bold; color: #b22222; }
-    footer { background: #4b0082; color: #fff; text-align: center; padding: 10px; margin-top: 40px; }
-
-    /* Responsive grid for Top 10 cards */
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
     }
 
-    /* Vote bar styling */
+    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--purple-dark);
+      padding-top: 80px;
+      transform: translateX(-260px);
+      transition: transform 0.3s ease;
+      z-index: 999;
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+
+    .side-menu.open {
+      transform: translateX(0);
+    }
+
+    .side-menu ul { list-style:none; padding:0; }
+    .side-menu li { margin:20px 0; text-align:center; }
+    .side-menu a {
+      color:var(--white);
+      font-size:20px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* HERO */
+    .hero {
+      text-align:center;
+      padding:60px 20px;
+      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
+      color: var(--white);
+      border-bottom-left-radius:20px;
+      border-bottom-right-radius:20px;
+      margin-bottom:40px;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    .hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero-tagline {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width:900px;
+      margin:40px auto;
+      padding:20px;
+      background:var(--white);
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
+    section { margin-bottom:30px; }
+
+    .content-block {
+      background:#fafafa;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .track-card {
+      background:#ffffff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom:20px;
+    }
+
+    .track-card h4 {
+      margin-bottom:10px;
+      color:var(--purple);
+    }
+
     .vote-bar {
-      background: #eee;
+      height: 12px;
+      background: var(--purple-light);
       border-radius: 6px;
-      overflow: hidden;
       margin-top: 8px;
     }
-    .vote-fill {
-      background: #4b0082;
-      height: 12px;
-      width: 0%;
-      transition: width 0.5s ease;
+
+    .submit-btn {
+      display:inline-block;
+      padding:12px 24px;
+      background:var(--purple);
+      color:#fff;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:600;
+      margin-top:10px;
     }
 
-    /* Mobile styles */
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #4b0082;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 15px;
-        border-radius: 8px;
-      }
-      nav ul.show {
-        display: flex;
-      }
-      .hamburger {
-        display: block;
-      }
+    footer {
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      background:var(--purple-dark);
+      color:var(--white);
     }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="logo-container">
-      <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-      <h1>Ninja Talks – AI Music</h1>
-      <!-- Hamburger button -->
-      <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+<!-- HEADER (Step 1) -->
+<header>
+  <div class="logo-container">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <h1>Ninja Talks</h1>
+  </div>
+
+  <nav>
+    <div></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </nav>
+</header>
+
+<!-- SLIDE-IN MENU (Step 2) -->
+<div class="side-menu" id="sideMenu">
+  <ul>
+    <li><a href="/NinjaTalks/index.html">Home</a></li>
+    <li><a href="/NinjaTalks/neurodiversity.html">Neurodiversity</a></li>
+    <li><a href="/NinjaTalks/wellness.html">Mind & Body</a></li>
+    <li><a href="/NinjaTalks/storytime.html">Story Time</a></li>
+    <li><a href="/NinjaTalks/fellowship.html">Fellowship</a></li>
+    <li><a href="/NinjaTalks/music.html">AI Music</a></li>
+    <li><a href="/NinjaTalks/contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h2 class="hero-title">AI Music</h2>
+  <p class="hero-tagline">Listen. Vote. Create. The sound of the community.</p>
+</section>
+
+<main>
+
+  <!-- INTRO -->
+  <section class="content-block">
+    <h3>Welcome to the AI Music Hub</h3>
+    <p>
+      Submit your tracks, vote for your favorites, and climb the weekly Top 10.  
+      This page will soon update automatically with live rankings, audio players, and vote bars.
+    </p>
+    <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="submit-btn">Submit Your Track</a>
+  </section>
+
+  <!-- TOP 10 (placeholder for your dynamic system) -->
+  <section class="content-block">
+    <h3>Top 10 Tracks of the Week</h3>
+
+    <!-- Example Track Card -->
+    <div class="track-card">
+      <h4>Track Title – Artist</h4>
+      <audio controls style="width:100%;">
+        <source src="track-placeholder.mp3" type="audio/mpeg">
+      </audio>
+      <div class="vote-bar" style="width: 70%;"></div>
     </div>
-    <nav>
-      <ul id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="neurodiversity.html">Neurodiversity</a></li>
-        <li><a href="wellness.html">Mind & Body</a></li>
-        <li><a href="storytime.html">Story Time</a></li>
-        <li><a href="fellowship.html">Fellowship</a></li>
-        <li><a href="music.html">AI Music</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <section>
-      <h2>AI Music Submissions</h2>
-      <p>Submit your track, vote for your favourite, and tune in Friday at 8pm for the live show.</p>
-    </section>
+    <div class="track-card">
+      <h4>Track Title – Artist</h4>
+      <audio controls style="width:100%;">
+        <source src="track-placeholder.mp3" type="audio/mpeg">
+      </audio>
+      <div class="vote-bar" style="width: 45%;"></div>
+    </div>
 
-    <!-- COUNTDOWNS -->
-    <section class="requirements-box">
-      <h3>Weekly Schedule</h3>
-      <ul>
-        <li><strong>Submissions close:</strong> Thursday 12pm <span id="submission-countdown" class="countdown">Loading…</span></li>
-        <li><strong>Voting close:</strong> Friday 12pm <span id="voting-countdown" class="countdown">Loading…</span></li>
-        <li><strong>Live show:</strong> Friday 8pm</li>
-      </ul>
-    </section>
+    <!-- More tracks will be auto‑generated by your backend -->
+  </section>
 
-    <!-- SUBMISSION FORM -->
-    <section>
-      <h3>Submit Your Track</h3>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSegIIkvLuzKWEcD3OShmVuw3Tlwv5IKu7HvcXtavx50C-lXow/viewform?embedded=true" width="100%" height="926" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </section>
+</main>
 
-    <!-- VOTING FORM -->
-    <section>
-      <h3>Vote for Your Favourite</h3>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd0_P1_E80ulZzOlA8IF06-bEjB9mz3Ukp0LLoW3UE_UDxCJQ/viewform?embedded=true" width="100%" height="752" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </section>
+<footer>
+  <p>&copy; Ninja Talks</p>
+</footer>
 
-    <!-- FEATURED TRACK -->
-    <section>
-      <h3>Featured Track of the Week</h3>
-      <div id="featured-track">Loading featured track…</div>
-    </section>
+<!-- SCRIPT (Step 3) -->
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+}
+</script>
 
-    <!-- TOP 10 -->
-    <section>
-      <h3>This Week’s Top 10</h3>
-      <div id="top10-list" class="grid-container">Loading Top 10…</div>
-    </section>
-
-    <!-- ALL TRACKS -->
-    <section>
-      <h3>All Submitted Tracks</h3>
-      <div id="all-tracks-list">Loading all tracks…</div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; Ninja Talks</p>
-  </footer>
-
-  <!-- JAVASCRIPT -->
-  <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("show");
-    }
-
-    const API_URL = 'https://script.google.com/macros/s/AKfycbyOUg88Kb2t9r9sppQZr2wBTBE5ajXfhY-ye4ewAO6LtihQK41XahtUNYd8f0j3GfGB/exec';
-
-    // Countdown helpers
-    function getNextWeekday(targetDay, hour, minute) {
-      const now = new Date();
-      const result = new Date(now);
-      result.setHours(hour, minute, 0, 0);
-      const currentDay = now.getDay();
-      let diff = targetDay - currentDay;
-      if (diff < 0 || (diff === 0 && result <= now)) diff += 7;
-      result.setDate(now.getDate() + diff);
-      return result;
-    }
-    function startCountdown(elementId, getTargetDateFn) {
-      function update() {
-        const el = document.getElementById(elementId);
-        const now = new Date();
-        const target = getTargetDateFn();
-        const diff = target - now;
-        if (diff <= 0) { el.textContent = 'Closed'; return; }
-        const seconds = Math.floor(diff / 1000);
-        const days = Math.floor(seconds / 86400);
-        const hours = Math.floor((seconds % 86400) / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        el.textContent = `${days}d ${hours}h ${minutes}m`;
-      }
-      update();
-      setInterval(update, 60000);
-    }
-    startCountdown('submission-countdown', () => getNextWeekday(4, 12, 0)); // Thursday 12pm
-    startCountdown('voting-countdown', () => getNextWeekday(5, 12, 0)); // Friday 12pm
-
-    // Embed helpers
-    function createEmbed(link) {
-      const container = document.createElement('div');
-      container.className = 'track-embed';
-      if (link.includes('spotify.com')) {
-        const url = new URL(link);
-        if (url.pathname.startsWith('/track/')) url.pathname = '/embed' + url.pathname;
-        const iframe = document.createElement('iframe');
-        iframe.src = url.toString();
-        iframe.width = '100%'; 
-        iframe.height = '152'; 
-        iframe.frameBorder = '0';
-        iframe.allow = 'encrypted-media';
-        container.appendChild(iframe);
-      } else {
-        let videoId = null;
-        try {
-          const url = new URL(link);
-          if (url.hostname.includes('youtu.be')) {
-            videoId = url.pathname.slice(1);
-          } else if (url.searchParams.get('v')) {
-            videoId = url.searchParams.get('v');
-          }
-        } catch (e) {}
-        const iframe = document.createElement('iframe');
-        iframe.width = '100%';
-        iframe.height = '315';
-        iframe.frameBorder = '0';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-        iframe.src = videoId ? 'https://www.youtube.com/embed/' + videoId : link;
-        container.appendChild(iframe);
-      }
-      return container;
-    }
-
-    // Track card with vote bar
-    function renderTrackCard(track, maxVotes) {
-      const card = document.createElement('div');
-      card.className = 'track-card';
-
-      const title = document.createElement('h4');
-      title.textContent = `${track.title} — ${track.artist}`;
-      card.appendChild(title);
-
-      const votes = document.createElement('p');
-      votes.textContent = `Votes: ${track.votes}`;
-      card.appendChild(votes);
-
-      // Vote bar
-      const bar = document.createElement('div');
-      bar.className = 'vote-bar';
-      const fill = document.createElement('div');
-      fill.className = 'vote-fill';
-      const percent = maxVotes > 0 ? (track.votes / maxVotes) * 100 : 0;
-      fill.style.width = percent + '%';
-      bar.appendChild(fill);
-      card.appendChild(bar);
-
-      card.appendChild(createEmbed(track.link));
-      return card;
-    }
-
-    async function loadTracks() {
-      try {
-        const res = await fetch(API_URL);
-        const data = await res.json();
-
-        const top10Container = document.getElementById('top10-list');
-        const allContainer = document.getElementById('all-tracks-list');
-        const featuredContainer = document.getElementById('featured-track');
-
-        top10Container.innerHTML = '';
-        allContainer.innerHTML = '';
-        featuredContainer.innerHTML = '';
-
-        const top10 = data.top10 || [];
-        const allTracks = data.allTracks || [];
-
-        // Find max votes for scaling bars
-        const maxVotesTop10 = top10.length > 0 ? Math.max(...top10.map(t => t.votes)) : 0;
-        const maxVotesAll = allTracks.length > 0 ? Math.max(...allTracks.map(t => t.votes)) : 0;
-
-        // Featured track
-        let featured = top10.length > 0 ? top10[0] : (allTracks.length > 0 ? allTracks[0] : null);
-        if (featured) {
-          featuredContainer.appendChild(renderTrackCard(featured, maxVotesTop10 || maxVotesAll));
-        } else {
-          featuredContainer.textContent = 'No tracks submitted yet.';
-        }
-
-        // Top 10 list
-        if (top10.length === 0) {
-          top10Container.textContent = 'No tracks yet for this week.';
-        } else {
-          top10.forEach(track => {
-            top10Container.appendChild(renderTrackCard(track, maxVotesTop10));
-          });
-        }
-
-        // All tracks list
-        if (allTracks.length === 0) {
-          allContainer.textContent = 'No tracks submitted yet.';
-        } else {
-          allTracks.forEach(track => {
-            allContainer.appendChild(renderTrackCard(track, maxVotesAll));
-          });
-        }
-
-      } catch (err) {
-        console.error(err);
-        document.getElementById('featured-track').textContent = 'Error loading featured track.';
-        document.getElementById('top10-list').textContent = 'Error loading Top 10.';
-        document.getElementById('all-tracks-list').textContent = 'Error loading tracks.';
-      }
-    }
-
-    // Run on page load
-    loadTracks();
-  </script>
 </body>
 </html>
