@@ -83,6 +83,11 @@ nav a:hover {
   list-style: none;
 }
 
+.hero, header {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
 /* ===========================
    HERO SECTION
    =========================== */
@@ -118,6 +123,11 @@ nav a:hover {
   opacity: 0.9;
 }
 
+.hero, header {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
 /* ===========================
    MAIN CONTENT
    =========================== */
@@ -138,6 +148,11 @@ h2, h3 {
 
 section {
   margin-bottom: 30px;
+}
+
+main {
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* ===========================
@@ -228,6 +243,11 @@ button:hover, .btn:hover {
   transform: translateX(-260px);
   transition: transform 0.3s ease;
   z-index: 999;
+}
+   .side-menu {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .side-menu.open {
