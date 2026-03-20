@@ -34,7 +34,7 @@ body {
 -------------------------------------------------- */
 header {
   background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-  padding: 50px;
+  padding: 30px;
   color: var(--white);
   display: flex;
   flex-direction: column;
