@@ -61,9 +61,11 @@ header {
 
 /* Logo text */
 .logo-container h1 {
-  font-size: 36px;               /* larger title text */
+  font-size: 40px;       /* bigger text */
   font-weight: 800;
   margin: 0;
+  text-transform: uppercase;  /* forces all caps */
+  letter-spacing: 2px;        /* optional: adds spacing for impact */
 }
 
 /* Menu button (hamburger) */
