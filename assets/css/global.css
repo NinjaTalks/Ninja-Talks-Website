@@ -42,10 +42,9 @@ header {
   gap: 10px;
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.page-logo-container {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .logo {
@@ -120,14 +119,13 @@ nav {
   margin-bottom: 40px;
 }
 
-.hero-logo {
-  height: 120px;
-  width: 120px;
+.page-logo {
+  height: 90px;
+  width: 90px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
-  border: 4px solid var(--white);
-}
+  border: 3px solid var(--white);
 
 .hero-title {
   font-size: 42px;
