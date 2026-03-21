@@ -37,17 +37,18 @@ header {
   padding: 20px;
   color: var(--white);
   display: flex;
-  justify-content: space-between; /* logo block on left, menu on right */
+  justify-content: center;   /* center the logo block */
   align-items: center;
+  position: relative;        /* allows absolute positioning for menu */
 }
 
 /* Logo block */
 .logo-container {
   display: flex;
-  flex-direction: column;   /* stack logo + text vertically */
-  align-items: center;      /* center horizontally */
-  text-align: center;       /* center text under logo */
-  gap: 8px;                 /* spacing between logo and text */
+  flex-direction: column;    /* stack logo + text vertically */
+  align-items: center;       /* center horizontally */
+  text-align: center;
+  gap: 8px;
 }
 
 /* Logo image */
@@ -58,18 +59,16 @@ header {
   object-fit: cover;
 }
 
-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
+/* Menu button (hamburger) */
 .menu-toggle {
-  display: block;
-  font-size: 32px;
+  position: absolute;
+  right: 20px;               /* keep it on the right edge */
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   color: var(--white);
+  font-size: 24px;
   cursor: pointer;
 }
 
