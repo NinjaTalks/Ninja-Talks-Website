@@ -59,16 +59,16 @@ function toggleMenu() {
 }
 
 // ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbw-GWk76-y9CoJzhzhY5KD6jH730ftad0v99zVlbV_ByO3joRpbwW_0RgblRh_ZDELU/exec")
+fetch("https://script.google.com/macros/s/AKfycbzYMfLn43ECFnipDdsAPIimyQF0bv6D4Wpj6_7HjCGIYvrSxeES6FEFH0OUO35Ny_b1/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
-    if (data.length === 0) {
+    if (!data || data.length === 0) {
       container.innerHTML = "<p>No tributes yet — be the first to submit!</p>";
       return;
     }
     data.forEach(song => {
-      if (song.approved && song.approved.toLowerCase() === "yes") {
+      if (song.approved && song.approved.toString().toLowerCase() === "yes") {
         const card = document.createElement("div");
         card.className = "highlight-card";
         card.innerHTML = `
