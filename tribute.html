@@ -57,7 +57,7 @@ function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
 }
 
-// Fetch songs from your new Google Apps Script JSON feed
+// Fetch songs from your Google Apps Script JSON feed
 fetch("https://script.google.com/macros/s/AKfycby91HY6yyNLRb6POgE30de_xP-7dmo38uYMqAny_tLzRQ7B1yiaL-mHRZwRVnSjT7PQ/exec")
   .then(response => response.json())
   .then(data => {
@@ -67,7 +67,6 @@ fetch("https://script.google.com/macros/s/AKfycby91HY6yyNLRb6POgE30de_xP-7dmo38u
       return;
     }
     data.forEach(song => {
-      // Only show songs marked Approved in the Sheet
       if (song.approved && song.approved.toLowerCase() === "yes") {
         const card = document.createElement("div");
         card.className = "highlight-card";
