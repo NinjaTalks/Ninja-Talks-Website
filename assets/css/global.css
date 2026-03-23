@@ -1,104 +1,286 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Ninja Talks – Global Template</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
-</head>
-<body>
-
-<header>
-  <div class="logo-container">
-    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
-    <h1>NINJA TALKS</h1>
-  </div>
-  <nav>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  </nav>
-</header>
-
-<!-- Global Side Menu -->
-<div class="side-menu" id="sideMenu">
-  <button class="close-menu" onclick="toggleMenu()">✖</button>
-  <ul>
-    <li><a href="/NinjaTalks/index.html">Home</a></li>
-    <li><a href="/NinjaTalks/neurodiversity.html">Neurodiversity</a></li>
-    <li><a href="/NinjaTalks/wellness.html">Mind & Body</a></li>
-    <li><a href="/NinjaTalks/storytime.html">Story Time</a></li>
-    <li><a href="/NinjaTalks/fellowship.html">Fellowship</a></li>
-    <li><a href="/NinjaTalks/music.html">AI Music</a></li>
-    <li><a href="/NinjaTalks/shop.html">Shop</a></li>
-    <li><a href="/NinjaTalks/tribute.html">Tribute Songs</a></li>
-    <li><a href="/NinjaTalks/contact.html">Contact</a></li>
-  </ul>
-</div>
-
-<main>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="page-logo-container">
-      <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="page-logo">
-    </div>
-    <h2 class="hero-title">Welcome to Ninja Talks</h2>
-    <p class="hero-tagline">Community, Creativity, and Connection.</p>
-  </section>
-
-  <!-- Example Content Section -->
-  <section>
-    <h3>About Ninja Talks</h3>
-    <div class="info-box">
-      <p>Ninja Talks is a community-driven hub for stories, music, fellowship, and creative expression. Explore our sections to discover more.</p>
-    </div>
-  </section>
-
-  <!-- Tribute Songs Section -->
-  <section>
-    <h3>Latest Tributes</h3>
-    <div id="tribute-list" class="highlight-grid"></div>
-  </section>
-</main>
-
-<footer>
-  <p>&copy; Ninja Talks</p>
-</footer>
-
-<script>
-function toggleMenu() {
-  document.getElementById("sideMenu").classList.toggle("open");
+/* --------------------------------------------------
+   GLOBAL VARIABLES
+-------------------------------------------------- */
+:root {
+  --purple-dark: #3a0ca3;
+  --purple: #7209b7;
+  --purple-light: #b5179e;
+  --pink: #f72585;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --gray: #cccccc;
+  --black: #1a1a1a;
+  --font-main: 'Segoe UI', Arial, sans-serif;
 }
 
-// Fetch songs from your Google Apps Script JSON feed
-fetch("https://script.google.com/macros/s/AKfycby91HY6yyNLRb6POgE30de_xP-7dmo38uYMqAny_tLzRQ7B1yiaL-mHRZwRVnSjT7PQ/exec")
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById("tribute-list");
-    if (data.length === 0) {
-      container.innerHTML = "<p>No tributes yet — be the first to submit!</p>";
-      return;
-    }
-    data.forEach(song => {
-      // Only show songs marked Approved in the Sheet
-      if (song.approved && song.approved.toLowerCase() === "yes") {
-        const card = document.createElement("div");
-        card.className = "highlight-card";
-        card.innerHTML = `
-          <h4>🎵 ${song.title}</h4>
-          <p>by ${song.artist}</p>
-          <audio controls>
-            <source src="${song.mp3}" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        `;
-        container.appendChild(card);
-      }
-    });
-  })
-  .catch(error => {
-    console.error("Error loading songs:", error);
-    document.getElementById("tribute-list").innerHTML = "<p>Unable to load songs right now.</p>";
-  });
-</script>
+/* --------------------------------------------------
+   RESET
+-------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-</body>
-</html>
+body {
+  font-family: var(--font-main);
+  background: var(--gray-light);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+header {
+  background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+  padding: 30px;                 /* more breathing room */
+  color: var(--white);
+  display: flex;
+  justify-content: center;       /* center logo block */
+  align-items: center;
+  position: relative;            /* allows menu button positioning */
+}
+
+/* Logo block */
+.logo-container {
+  display: flex;
+  flex-direction: column;        /* stack logo + text vertically */
+  align-items: center;
+  text-align: center;
+  gap: 12px;                     /* spacing between logo and text */
+}
+
+/* Logo image */
+.logo {
+  height: 120px;                 /* bigger than 80px */
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Logo text */
+.logo-container h1 {
+  font-size: 40px;       /* bigger text */
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;  /* forces all caps */
+  letter-spacing: 2px;        /* optional: adds spacing for impact */
+}
+
+/* Menu button (hamburger) */
+.menu-toggle {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 40px;   /* bigger than before (was ~28px) */
+  cursor: pointer;
+  padding: 8px;      /* optional: adds clickable area */
+}
+
+/* --------------------------------------------------
+   SLIDE-IN MENU (FULLY FIXED)
+-------------------------------------------------- */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background: var(--purple-dark);
+  padding-top: 80px;
+  transform: translateX(-260px);
+  transition: transform 0.3s ease;
+  z-index: 9999;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.side-menu a {
+  color: var(--white);
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 28px;   /* size of the X */
+  cursor: pointer;
+}
+
+/* --------------------------------------------------
+   HERO SECTION
+-------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 40px 20px;   /* reduced from 60px */
+  background: linear-gradient(180deg, var(--purple-dark), var(--purple));
+  color: var(--white);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.page-logo-container {
+  text-align: center;
+  margin-bottom: 20px;  /* spacing between logo and title */
+}
+
+.page-logo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: none; 
+}
+
+.hero-title {
+  color: #f8f8f8; /* off-white */
+  text-shadow: 0 0 12px rgba(255,255,255,0.8); /* stronger glow */
+  font-size: 70px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.hero-tagline {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+/* LIVE BADGE */
+.live-badge {
+  display: inline-block;
+  background: var(--pink);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+/* --------------------------------------------------
+   MAIN CONTENT
+-------------------------------------------------- */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+  color: var(--purple-dark);
+  margin-bottom: 10px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+/* --------------------------------------------------
+   CARDS & GRIDS
+-------------------------------------------------- */
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.highlight-card {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* --------------------------------------------------
+   INFO BOXES
+-------------------------------------------------- */
+.info-box {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid var(--purple);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* --------------------------------------------------
+   BUTTONS
+-------------------------------------------------- */
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: var(--purple);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.tiktok-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 24px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background: var(--purple-dark);
+  color: var(--white);
+}
+
+/* --------------------------------------------------
+   RESPONSIVE FIXES
+-------------------------------------------------- */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 32px;
+  }
+  .hero-logo {
+    height: 90px;
+    width: 90px;
+  }
+}
