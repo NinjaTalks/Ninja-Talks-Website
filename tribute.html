@@ -92,11 +92,12 @@ fetch("https://script.google.com/macros/s/AKfycbyodrf8ZXn64plmIh6H8Y4Jscb6q2YgyK
         }
         audioHTML += `Your browser does not support the audio element.</audio>`;
 
-        // Build card content
+        // Build card content with status
         card.innerHTML = `
-          <h4>🎵 ${song["song title"]}</h4>
+          <h4>🎵 ${song["song name"]}</h4>
           <p>by ${song["artist name"]}</p>
           ${audioHTML}
+          <p class="status">Status: ${song["status"] || "Unknown"}</p>
         `;
 
         container.appendChild(card);
