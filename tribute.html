@@ -32,11 +32,6 @@
       border-radius: 6px;
       background: #fafafa;
     }
-    .debug {
-      font-size: 0.85em;
-      color: #555;
-      margin-top: 4px;
-    }
   </style>
 </head>
 <body>
@@ -93,7 +88,7 @@ function toggleMenu() {
 }
 
 // ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbw4UVQfzVu59dDRBl_pZL7zOJJPr631663zQCMak0nnuGq0mDs7uHL3UORS5HqYGTIl/exec")
+fetch("https://script.google.com/macros/s/AKfycbyi4zEnRKF9cZEcClzuhdk_5MnmAQaWpDxtSqeS88jd7zvyFqm73N77ey0tL2dVtZXl/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
@@ -109,7 +104,6 @@ fetch("https://script.google.com/macros/s/AKfycbw4UVQfzVu59dDRBl_pZL7zOJJPr63166
         card.className = "highlight-card";
 
         let link = song["upload mp3 file"];
-        console.log("Audio URL for", song["song title"], ":", link);
 
         // Build audio player
         let audioHTML = `<audio controls>`;
@@ -129,14 +123,13 @@ fetch("https://script.google.com/macros/s/AKfycbw4UVQfzVu59dDRBl_pZL7zOJJPr63166
           statusText = "⚠️ Restricted – check sharing settings";
         }
 
-        // Build card content with debug info
+        // Build card content
         card.innerHTML = `
           <h4>🎵 ${song["song title"]}</h4>
           <p>by ${song["artist name"]}</p>
           ${audioHTML}
           <p class="status ${statusClass}">Status: ${statusText}</p>
           <a href="${link}" class="download-btn" download>⬇ Download</a>
-          <p class="debug">Debug fileId: ${link.replace(/^.*fileId=/,'')}</p>
         `;
 
         container.appendChild(card);
