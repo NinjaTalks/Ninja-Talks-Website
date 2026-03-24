@@ -88,7 +88,7 @@ function toggleMenu() {
 }
 
 // ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbzIMJCjOwldH0HmEJPNibCplk9tmTsmPfw3_ccNPZWFUdGcpAYDh4bR0dHyNRu0Eti0/exec")
+fetch("https://script.google.com/macros/s/AKfycbxQMayIDRiILgPxWjQwLMOBAcCY23Med89bEwarRB_4cQWztwNl7pI7VZh-E6zmLD8j/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
@@ -105,12 +105,21 @@ fetch("https://script.google.com/macros/s/AKfycbzIMJCjOwldH0HmEJPNibCplk9tmTsmPf
 
         let link = song["upload mp3 file"];
 
-        // Build audio player
-        let audioHTML = `<audio controls>`;
+        // Build audio player with fallback
+        let audio = document.createElement("audio");
+        audio.controls = true;
         if (link) {
-          audioHTML += `<source src="${link}" type="audio/mpeg">`;
+          let source = document.createElement("source");
+          source.src = link;
+          source.type = "audio/mpeg";
+          audio.appendChild(source);
         }
-        audioHTML += `Your browser does not support the audio element.</audio>`;
+
+        // Fallback: if audio fails, show download button
+        audio.onerror = () => {
+          audio.replaceWith(document.createElement("p"));
+          card.innerHTML += `<p>⚠️ Playback failed. Please use the download link below.</p>`;
+        };
 
         // Status badge
         let statusClass = "not-approved";
@@ -127,7 +136,9 @@ fetch("https://script.google.com/macros/s/AKfycbzIMJCjOwldH0HmEJPNibCplk9tmTsmPf
         card.innerHTML = `
           <h4>🎵 ${song["song title"]}</h4>
           <p>by ${song["artist name"]}</p>
-          ${audioHTML}
+        `;
+        card.appendChild(audio);
+        card.innerHTML += `
           <p class="status ${statusClass}">Status: ${statusText}</p>
           <a href="${link}" class="download-btn" download>⬇ Download</a>
         `;
