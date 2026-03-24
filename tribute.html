@@ -106,14 +106,6 @@ fetch("https://script.google.com/macros/s/AKfycbwEq5VlYagkIpbXoBaCOcAi4owFAyjveS
         // Proxy link provided in JSON (exec?fileId=...)
         let link = song["upload mp3 file"];
 
-        // Build audio player
-        let audioHTML = `
-          <audio controls preload="metadata">
-            <source src="${link}" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        `;
-
         // Status badge
         let statusClass = "not-approved";
         let statusText = "Not approved";
@@ -125,11 +117,10 @@ fetch("https://script.google.com/macros/s/AKfycbwEq5VlYagkIpbXoBaCOcAi4owFAyjveS
           statusText = "⚠️ Restricted – check sharing settings";
         }
 
-        // Build card content
+        // Build card content (no audio player, only download)
         card.innerHTML = `
           <h4>🎵 ${song["song title"]}</h4>
           <p>by ${song["artist name"]}</p>
-          ${audioHTML}
           <p class="status ${statusClass}">Status: ${statusText}</p>
           <a href="${link}" class="download-btn" download>⬇ Download</a>
         `;
