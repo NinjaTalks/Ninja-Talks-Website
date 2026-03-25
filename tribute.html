@@ -76,8 +76,8 @@ function toggleMenu() {
   document.getElementById("sideMenu")?.classList.toggle("open");
 }
 
-// ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbwpATQ3_4vbmjAowavxsZAbcOftLYAogyKEBUnWnHU/dev")
+// ✅ Fetch from your live Web App URL
+fetch("https://script.google.com/macros/s/AKfycbz3nc0NTyyGn1u2EMwwVYt-9flcDoi0MReiYu5qKlw6avpOLQquYn4hW5AWiENL3yLw/exec")
   .then(response => response.json())
   .then(data => {
     const tbody = document.querySelector("#tribute-table tbody");
