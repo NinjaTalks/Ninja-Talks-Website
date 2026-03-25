@@ -47,8 +47,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="page-logo-container">
-  <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="page-logo" alt="Tribute Logo">
-</div>
+    <!-- Use the same logo file as other pages for consistency -->
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="page-logo" alt="Tribute Logo">
+  </div>
   <div class="page-log">🎵 Live Tribute Submissions Log</div>
   <h2 class="hero-title">Tribute Songs</h2>
   <p class="hero-tagline">Celebrating creativity and connection</p>
@@ -82,12 +83,16 @@ async function loadTributes() {
 
     tributes.forEach(t => {
       if (t.status === "Ready") {
+        // Build a proper Google Drive download link
+        let fileId = t["upload mp3 file"];
+        let audioUrl = fileId ? "https://drive.google.com/uc?export=download&id=" + fileId : "";
+
         const card = document.createElement("div");
         card.className = "highlight-card";
         card.innerHTML = `
           <h4>${t["song title"] || "Untitled"}</h4>
           <p>By ${t["artist name"] || "Unknown"}</p>
-          <audio controls src="${t["upload mp3 file"]}"></audio>
+          <audio controls src="${audioUrl}"></audio>
         `;
         container.appendChild(card);
       }
