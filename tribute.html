@@ -103,15 +103,19 @@ async function loadTributes() {
       songs: songs
     });
 
-    // Build playlist UI
+    // Build playlist UI with fallback
     const playlist = document.getElementById("playlist");
     songs.forEach((song, index) => {
       const item = document.createElement("div");
-      item.className = "amplitude-song-container amplitude-play-pause";
-      item.setAttribute("data-amplitude-song-index", index);
+      item.className = "amplitude-song-container";
       item.innerHTML = `
         <strong>${song.name}</strong> by ${song.artist}
         <br><small>Submitted on ${song.custom_meta.timestamp}</small>
+        <br>
+        <audio controls preload="auto">
+          <source src="${song.url}" type="audio/mpeg">
+          ⚠️ This track may not play. Please check file format (MP3 only) and sharing settings.
+        </audio>
       `;
       playlist.appendChild(item);
     });
